@@ -19,8 +19,6 @@ import br.com.springboot.repository.UserRepository;
 
 public class UserController {
 
-    private List<User> users = new ArrayList<>();
-
     @Autowired
     private UserRepository userRepository;
 
@@ -44,6 +42,11 @@ public class UserController {
     @GetMapping("/list")
     public List<User> list() {
         return this.userRepository.findAll();
+    }
+
+    @GetMapping("/list/{id}")
+    public List<User> listMore(@PathVariable("id") int id) {
+        return this.userRepository.findMoreThan(id);
     }
 
 }
