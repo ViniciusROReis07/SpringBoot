@@ -13,4 +13,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u FROM User u where u.id > :id")
     public List<User> findMoreThan(@Param("id") int id);
 
+    public List<User> findByIdGreaterThan(int id);
+
+    public List<User> findByNameIgnoreCase(String name);
+
 }
